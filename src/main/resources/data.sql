@@ -1,0 +1,1 @@
+INSERT INTO employee (name, age, mail) VALUES ('a', 25, 'a@~,com');
