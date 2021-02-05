@@ -20,7 +20,7 @@
       <th>年齢</th>
       <th>メールアドレス</th>
     </tr>
-    <tr th:object="${employee}">
+    <tr th:each="employee:${employees}" th:object="${employee}">
       <td th:text="*{id}"></td>
       <td th:text="*{name}"></td>
       <td th:text="*{age}"></td>

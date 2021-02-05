@@ -16,9 +16,18 @@ public class HomeController {
 	@RequestMapping(value = "/", method = RequestMethod.GET)
 	public ModelAndView index(ModelAndView mav) {
 		mav.setViewName("index");
-		mav.addObject("title", "社員管理システム");
+		mav.addObject("title", "社員情報管理システム");
+		mav.addObject("search", new Employee());
 		return mav;
 	}
+
+	//実装中
+//	@RequestMapping(value = "/edit/{id}", method = RequestMethod.POST)
+//	public ModelAndView show(@PathVariable Long id, ModelAndView mav) {
+//		mav.setViewName("show");
+//		mav.addObject("employee", employeeService.findOne(id));
+//		return mav;
+//	}
 
 	@RequestMapping(value = "/edit/{id}", method = RequestMethod.GET)
 	public ModelAndView show(@PathVariable Long id, ModelAndView mav) {
@@ -26,4 +35,12 @@ public class HomeController {
 		mav.addObject("employee", employeeService.findOne(id));
 		return mav;
 	}
+
+	@RequestMapping(value = "/edit/", method = RequestMethod.GET)
+	public ModelAndView show(ModelAndView mav) {
+		mav.setViewName("showAll");
+		mav.addObject("employees", employeeService.findAll());
+		return mav;
+	}
+
 }
