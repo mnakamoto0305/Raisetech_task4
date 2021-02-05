@@ -7,8 +7,13 @@
   h1 {font-size: 18pt; font-weight: bold; color: gray;}
   body {font-size: 13pt; color: gray; margin: 5px 25px;}
 </style>
-<body>
+<body th:object="${search}">
   <h1 th:text="${title}">title</h1>
   <p>社員番号を入力してください。</p>
+  <p>*フォーム欄は現在実装中につき使用不可</p>
+  <form action="@{/edit/{id} (id = *{id})}"  method="post">
+    <input type="text" />
+    <button type="submit">確認</button>
+  </form>
 </body>
 </html>
